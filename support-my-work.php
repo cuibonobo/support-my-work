@@ -3,7 +3,7 @@
 Plugin Name: Support My Work
 Plugin URI: https://github.com/jenmontes/support-my-work
 Description: Display a "Buy Now" PayPal button where users can enter they amount.
-Version: 0.1
+Version: 0.2
 Author: Jen Montes
 Author URI: http://jenmontes.com
 License: CC0
