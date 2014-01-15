@@ -22,9 +22,13 @@ class Support_My_Work extends WP_Widget {
 		$input_label = esc_attr( $instance['input_label'] );
 		$business_id = esc_attr( $instance['business_id'] );
 		$custom_button = esc_attr( $instance['custom_button'] );
+		$button_text = "Buy Now";
 		$item_name = "Support my work";
 		
-		if (isset( $instance['item_name'] )) {
+		if (isset( $instance['button_text'] ) && $instance['button_text'] != "") {
+			$button_text = esc_attr( $instance['button_text']);
+		} 
+		if (isset( $instance['item_name'] ) && $instance['item_name'] != "") {
 			$item_name = esc_attr( $instance['item_name']);
 		}
 		
@@ -42,7 +46,11 @@ class Support_My_Work extends WP_Widget {
 			<input class="widefat" id="<?php echo $this->get_field_id( 'business_id' ); ?>" name="<?php echo $this->get_field_name( 'business_id' ); ?>" type="text" value="<?php echo $business_id; ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'custom_button' ); ?>">Custom button image URL:</label>
+			<label for="<?php echo $this->get_field_id( 'button_text' ); ?>">Button text (defaults to "Buy Now"):</label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'button_text' ); ?>" name="<?php echo $this->get_field_name( 'button_text' ); ?>" type="text" value="<?php echo $button_text; ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'custom_button' ); ?>">Custom button image URL (not used if blank):</label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'custom_button' ); ?>" name="<?php echo $this->get_field_name( 'custom_button' ); ?>" type="text" value="<?php echo $custom_button; ?>" />
 		</p>
 		<p>
@@ -58,29 +66,39 @@ class Support_My_Work extends WP_Widget {
 	 */
 	function widget( $args, $instance ) {
 		echo $args['before_widget'];
+		wp_enqueue_style( 'support-my-work-style', plugins_url('style.css', __FILE__) );
 		?>
 		<?php if ($instance['widget_title']): ?>
 		<h5 class="widget-title"><?php echo $instance['widget_title']; ?></h5>
 		<?php endif; ?>
-		<form class="support-my-work-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="paypal">
-			<p class="support-my-work-text-label"><?php echo(isset($instance['input_label']) ? $instance['input_label'] : "Pay what you want:"); ?></p>
-			<input class="support-my-work-text-input" type="text" name="amount" style="margin-bottom: 1em;">
-			<input class="support-my-work-button" type="image" src="<?php if ($instance['custom_button'] != "") {echo $instance['custom_button'];} else {echo "https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif";} ?>" border="0" name="submit">
-			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			<input type="hidden" name="cmd" value="_xclick">
-			<input type="hidden" name="business" value="<?php echo $instance['business_id']; ?>">
-			<input type="hidden" name="item_name" value="<?php echo $instance['item_name']; ?>">
-			<input type="hidden" name="item_number" value="">
-			<input type="hidden" name="no_shipping" value="1">
-			<input type="hidden" name="shipping" value="0.00">
-			<input type="hidden" name="tax" value="0.00">
-			<input type="hidden" name="button_subtype" value="services">
-			<input type="hidden" name="no_note" value="0">
-			<input type="hidden" name="cn" value="Add special instructions to the seller:">
-			<input type="hidden" name="country" value="US">
-			<input type="hidden" name="currency_code" value="USD">
-			<input type="hidden" name="lc" value="US">
-			<input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHosted">
+		<form id="support-my-work" class="ui form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="paypal">
+			<div class="field">
+				<label><?php echo(isset($instance['input_label']) ? $instance['input_label'] : "Pay what you want:"); ?></label>
+				<div class="ui left labeled input">
+					<input type="text" name="amount" />
+				</div>
+			</div>
+			<?php if ($instance['custom_button']): ?>
+			<input class="image" type="image" src="<?php echo $instance['custom_button'];?>" border="0" name="submit">
+			<?php else: ?>
+			<div class="ui circular button">
+				<button type="submit"><?php if ($instance['button_text']){ echo $instance['button_text'];} else { echo "Buy Now";}?></button>
+			</div>
+			<?php endif; ?>
+			<input type="hidden" name="cmd" value="_xclick" />
+			<input type="hidden" name="business" value="<?php echo $instance['business_id']; ?>" />
+			<input type="hidden" name="item_name" value="<?php if ($instance['item_name']) {echo $instance['item_name'];} else { echo "Support my work";} ?>" />
+			<input type="hidden" name="item_number" value="" />
+			<input type="hidden" name="no_shipping" value="1" />
+			<input type="hidden" name="shipping" value="0.00" />
+			<input type="hidden" name="tax" value="0.00" />
+			<input type="hidden" name="button_subtype" value="services" />
+			<input type="hidden" name="no_note" value="0" />
+			<input type="hidden" name="cn" value="Add special instructions to the seller:" />
+			<input type="hidden" name="country" value="US" />
+			<input type="hidden" name="currency_code" value="USD" />
+			<input type="hidden" name="lc" value="US" />
+			<input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHosted" />
 		</form>
 		
 		<?php

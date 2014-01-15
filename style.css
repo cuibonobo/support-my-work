@@ -1,0 +1,298 @@
+/*
+ * # Semantic - Form
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+           Standard
+*******************************/
+
+/*--------------------
+        Form
+---------------------*/
+
+#support-my-work.ui.form {
+  position: relative;
+  max-width: 100%;
+}
+
+#support-my-work.ui.form :first-child {
+  margin-top: 0em;
+}
+
+#support-my-work.ui.form :last-child {
+  margin-bottom: 0em;
+}
+
+/*--------------------
+        Content
+---------------------*/
+
+#support-my-work.ui.form > p {
+  margin: 1em 0;
+}
+
+/*--------------------
+        Field
+---------------------*/
+
+#support-my-work.ui.form .field {
+  clear: both;
+  margin: 0em 0em 1em;
+}
+
+/*--------------------
+        Labels
+---------------------*/
+
+#support-my-work.ui.form .field > label {
+  margin: 0em 0em 0.3em;
+  display: block;
+  color: #555555;
+  font-size: 0.875em;
+}
+
+/*--------------------
+    Standard Inputs
+---------------------*/
+
+#support-my-work.ui.form textarea,
+#support-my-work.ui.form input[type="text"],
+#support-my-work.ui.form input[type="email"],
+#support-my-work.ui.form input[type="date"],
+#support-my-work.ui.form input[type="password"],
+#support-my-work.ui.form input[type="number"],
+#support-my-work.ui.form input[type="url"],
+#support-my-work.ui.form input[type="tel"],
+#support-my-work.ui.form .ui.input {
+  width: 100%;
+}
+
+#support-my-work.ui.form textarea,
+#support-my-work.ui.form input[type="text"],
+#support-my-work.ui.form input[type="email"],
+#support-my-work.ui.form input[type="date"],
+#support-my-work.ui.form input[type="password"],
+#support-my-work.ui.form input[type="number"],
+#support-my-work.ui.form input[type="url"],
+#support-my-work.ui.form input[type="tel"] {
+  margin: 0em 0em 1em;
+  padding: 0.85em 1.2em;
+  font-size: 0.875em;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  outline: none;
+  color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.3125em;
+  -webkit-transition: background-color 0.3s ease-out, -webkit-box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#support-my-work .ui.textarea,
+#support-my-work.ui.form textarea {
+  line-height: 1.33;
+  min-height: 8em;
+  height: 12em;
+  max-height: 24em;
+  resize: vertical;
+}
+
+#support-my-work.ui.form textarea,
+#support-my-work.ui.form input[type="checkbox"] {
+  vertical-align: top;
+}
+
+/*******************************
+            States
+*******************************/
+
+/*--------------------
+        Focus
+---------------------*/
+
+#support-my-work.ui.form input[type="text"]:focus,
+#support-my-work.ui.form input[type="email"]:focus,
+#support-my-work.ui.form input[type="date"]:focus,
+#support-my-work.ui.form input[type="password"]:focus,
+#support-my-work.ui.form input[type="number"]:focus,
+#support-my-work.ui.form input[type="url"]:focus,
+#support-my-work.ui.form input[type="tel"]:focus,
+#support-my-work.ui.form textarea:focus {
+  color: rgba(0, 0, 0, 0.85);
+  border-color: rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -webkit-appearance: none;
+  -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------------
+          Fields
+---------------------*/
+
+/* Split fields */
+
+#support-my-work.ui.form .fields {
+  clear: both;
+}
+
+#support-my-work.ui.form .fields:after {
+  content: ' ';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+#support-my-work.ui.form .fields > .field {
+  clear: none;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#support-my-work.ui.form .fields > .field:first-child {
+  border-left: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* Other Combinations */
+
+#support-my-work.ui.form .fields .field:first-child {
+  padding-left: 0%;
+}
+
+#support-my-work.ui.form .fields .field:last-child {
+  padding-right: 0%;
+}
+
+/*******************************
+            Button
+*******************************/
+/* Prototype */
+
+#support-my-work .ui.button,
+#support-my-work .ui.button button {
+  display: inline-block;
+  vertical-align: middle;
+  min-height: 1em;
+  outline: none;
+  border: none;
+  color: #808080;
+  margin: 0em;
+  padding: 0.8em 1.5em;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  line-height: 1;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+}
+
+#support-my-work .ui.button button {
+  	cursor: pointer;
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+}
+
+#support-my-work .ui.button {
+  background-color: #FAFAFA;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  border-radius: 0.25em;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, -webkit-box-shadow 0.25s ease;
+  transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+/*******************************
+            States
+*******************************/
+
+/*--------------
+     Active
+---------------*/
+
+#support-my-work .ui.buttons .active.button,
+#support-my-work .ui.active.button {
+  background-color: #EAEAEA;
+  background-image: none;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/*--------------
+      Hover
+---------------*/
+
+#support-my-work .ui.button:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.08)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
+  color: rgba(0, 0, 0, 0.7);
+}
+
+#support-my-work .ui.button.active:hover {
+  background-image: none;
+}
+
+#support-my-work .ui.button:hover .icon,
+#support-my-work .ui.button.hover .icon {
+  opacity: 0.85;
+}
+
+/*--------------
+      Down
+---------------*/
+
+#support-my-work .ui.button:active,
+#support-my-work .ui.active.button:active {
+  background-color: #F1F1F1;
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+}
+/*--------------
+    Circular
+---------------*/
+
+#support-my-work .ui.circular.button {
+  border-radius: 10em;
+}
